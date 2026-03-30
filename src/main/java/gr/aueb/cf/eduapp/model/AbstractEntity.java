@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import java.time.Instant;
 
 @MappedSuperclass //Δήλωση ότι είναι μόνο super class και ότι μόνο κληρονομήτε και δεν φτιαχνeu  table
@@ -16,26 +18,26 @@ import java.time.Instant;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners(AbstractEntity.class)
+@EntityListeners(AuditingEntityListener.class)
 
 public abstract class AbstractEntity {
 
     @CreatedDate //  Δήλωση ημερομηνίας μετά το sava του Entity
-    @Column(name = "create_at", nullable = false, updatable = false, columnDefinition = "DATETIME")
-    private Instant createAt;  // UTC
+    @Column(name = "created_at", nullable = false, updatable = false, columnDefinition = "DATETIME")
+    private Instant createdAt;  // UTC
 
     @LastModifiedDate //Update του Entity ημερομηνίας
-    @Column(name = "update_at", nullable = false,columnDefinition = "DATETIME")
-    private Instant updateAt;
+    @Column(name = "updated_at", nullable = false,columnDefinition = "DATETIME")
+    private Instant updatedAt;
 
     @Column(nullable = false)
     private  boolean deleted;
 
-    @Column(name = "delete_at",nullable = false,columnDefinition = "DATETIME")
-    private Instant deleteAt;
+    @Column(name = "deleted_at",nullable = false,columnDefinition = "DATETIME")
+    private Instant deletedAt;
 
     public void softDelete(){
         this.deleted = true;
-        this.deleteAt = Instant.now();
+        this.deletedAt = Instant.now();
     }
 }
