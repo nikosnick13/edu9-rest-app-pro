@@ -22,7 +22,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j //TODO add loading
+@Slf4j
 public class UserService implements IUserService{
 
     private final UserRepository userRepository;
