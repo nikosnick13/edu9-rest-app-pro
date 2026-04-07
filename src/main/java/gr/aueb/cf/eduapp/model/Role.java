@@ -42,26 +42,26 @@ public class Role {
         return Set.copyOf(users);
     }
 
-    private void addUser(User user){
+    public void addUser(User user){
         users.add(user);
         user.setRole(this);
     }
 
-    private void removeUser(User user){
+    public void removeUser(User user){
         users.remove(user);
         user.setRole(null);
     }
 
-    private void addUsers(Collection<User> users){
+    public void removeUser(Collection<User> users){
         users.forEach(this::addUser);
     }
 
-     private void addCapability(Capability capability){
+    public void addCapability(Capability capability){
         capabilities.add(capability);
         capability.getRoles().add(this);
      }
 
-     private void removeCapability(Capability capability){
+    public void removeCapability(Capability capability){
         capabilities.remove(capability);
         capability.getRoles().remove(this);
      }
