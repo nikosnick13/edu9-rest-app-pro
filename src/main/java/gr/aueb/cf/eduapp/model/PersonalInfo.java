@@ -35,6 +35,9 @@ public class PersonalInfo extends AbstractEntity{
     @JoinColumn(name = "amka_file_id", unique = true)
     private Attachment amkaFile;
 
+    @OneToOne(mappedBy = "teacher",fetch = FetchType.LAZY)
+    private Teacher teacher;
+
     public void addAmkaFile(Attachment attachment) {
         this.amkaFile = attachment;
     }

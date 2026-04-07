@@ -48,6 +48,15 @@ public class Teacher extends AbstractEntity {
     @JoinColumn(name = "user_id",nullable = false, unique = true)
     private User user;
 
+    @OneToOne(cascade = CascadeType.ALL) // Όταν κάνεις save το parent entity(teacher), να γίνει save και το child(personal info) αυτόματα
+    @JoinColumn(name = "personal_info_id")
+    private PersonalInfo personalInfo;
+
+    public void addUser(User user){
+        this.user = user;
+        user.setTeacher(this);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
