@@ -32,7 +32,7 @@ public class UserService implements IUserService{
 
 
     @Override
-    @Transactional(rollbackFor = {EntityAlreadyExistException.class,EntityInvalidArgumentException.class})
+    @Transactional(rollbackFor = {EntityAlreadyExistException.class,EntityInvalidArgumentException.class}) //Transactional κανοθν τα servises που κάνουν αλλαγές στην βάση πχ insert updaτe, delete κλπ
     public UserReadOnlyDTO saveUser(UserInsertDTO userInsertDTO) throws EntityAlreadyExistException, EntityInvalidArgumentException {
         try {
 
