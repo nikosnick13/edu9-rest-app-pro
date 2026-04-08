@@ -2,9 +2,10 @@ package gr.aueb.cf.eduapp.service;
 
 import gr.aueb.cf.eduapp.core.exeption.EntityAlreadyExistException;
 import gr.aueb.cf.eduapp.core.exeption.EntityInvalidArgumentException;
+import gr.aueb.cf.eduapp.core.exeption.EntityNotFoundException;
 import gr.aueb.cf.eduapp.dto.UserInsertDTO;
 import gr.aueb.cf.eduapp.dto.UserReadOnlyDTO;
-import jakarta.persistence.EntityNotFoundException;
+
 
 import java.util.UUID;
 
