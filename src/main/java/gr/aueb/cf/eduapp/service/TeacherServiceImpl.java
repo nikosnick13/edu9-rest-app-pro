@@ -103,11 +103,11 @@ public class TeacherServiceImpl implements ITeacherService {
         }
     }
 
-//    @Override
-//    @Transactional(readOnly = true)
-//    public boolean isTeacherExists(String vat) {
-//        return teacherRepository.findByVat(vat).isPresent();
-//    }
+    @Override
+    @Transactional(readOnly = true)
+    public boolean isTeacherExists(String vat) {
+        return teacherRepository.findByVat(vat).isPresent();
+    }
 
     @Override
     @PreAuthorize("hasAuthority('VIEW_TEACHERS')")
