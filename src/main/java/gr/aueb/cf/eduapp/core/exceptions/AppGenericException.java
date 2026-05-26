@@ -1,4 +1,4 @@
-package gr.aueb.cf.eduapp.core.exeption;
+package gr.aueb.cf.eduapp.core.exceptions;
 
 import lombok.Getter;
 
@@ -13,6 +13,7 @@ public class AppGenericException extends Exception {
         this.code = code;
     }
 
-    public AppGenericException() {
+    public AppGenericException(String code) {
+        this.code = code;
     }
 }

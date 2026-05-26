@@ -1,9 +1,9 @@
 package gr.aueb.cf.eduapp.service;
 
 
-import gr.aueb.cf.eduapp.core.exeption.EntityAlreadyExistException;
-import gr.aueb.cf.eduapp.core.exeption.EntityInvalidArgumentException;
-import gr.aueb.cf.eduapp.core.exeption.EntityNotFoundException;
+import gr.aueb.cf.eduapp.core.exceptions.EntityAlreadyExistsException;
+import gr.aueb.cf.eduapp.core.exceptions.EntityInvalidArgumentException;
+import gr.aueb.cf.eduapp.core.exceptions.EntityNotFoundException;
 import gr.aueb.cf.eduapp.dto.UserInsertDTO;
 import gr.aueb.cf.eduapp.dto.UserReadOnlyDTO;
 import gr.aueb.cf.eduapp.mapper.Mapper;
@@ -13,6 +13,7 @@ import gr.aueb.cf.eduapp.repository.RoleRepository;
 import gr.aueb.cf.eduapp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,12 +32,12 @@ public class UserService implements IUserService{
 
 
     @Override
-    @Transactional(rollbackFor = {EntityAlreadyExistException.class,EntityInvalidArgumentException.class}) //Transactional κανοθν τα servises που κάνουν αλλαγές στην βάση πχ insert updaτe, delete κλπ
-    public UserReadOnlyDTO saveUser(UserInsertDTO userInsertDTO) throws EntityAlreadyExistException, EntityInvalidArgumentException {
+    @Transactional(rollbackFor = {EntityAlreadyExistsException.class,EntityInvalidArgumentException.class}) //Transactional κανοθν τα servises που κάνουν αλλαγές στην βάση πχ insert updaτe, delete κλπ
+    public UserReadOnlyDTO saveUser(UserInsertDTO userInsertDTO) throws EntityAlreadyExistsException, EntityInvalidArgumentException {
         try {
 
             if(userRepository.findByUsername(userInsertDTO.username()).isPresent()) {
-                throw new EntityAlreadyExistException("User", "User with username" + userInsertDTO.username() + " is already exist");
+                throw new EntityAlreadyExistsException("User", "User with username" + userInsertDTO.username() + " is already exist");
             }
 
             User user = mapper.mapToUserEntity(userInsertDTO);
@@ -52,7 +53,7 @@ public class UserService implements IUserService{
 
             return mapper.mapToUserReadOnlyDTO(user);
 
-        }catch (EntityAlreadyExistException ex){
+        }catch (EntityAlreadyExistsException ex){
             log.error("Save failed. The User is with username = {} is already exist.", userInsertDTO.username());
             throw ex;
         }catch (EntityInvalidArgumentException ex){
@@ -62,6 +63,7 @@ public class UserService implements IUserService{
     }
 
     @Override
+    @PreAuthorize("hasAuthority('VIEW_USER')")
     @Transactional(readOnly = true)
     public UserReadOnlyDTO getUserByUUID(UUID uuid) throws EntityNotFoundException {
         try {
@@ -79,6 +81,7 @@ public class UserService implements IUserService{
     }
 
     @Override
+    @PreAuthorize("hasAuthority('VIEW_USER')")
     @Transactional(readOnly = true)
     public UserReadOnlyDTO getUserByUUIDDeleteSoft(UUID uuid) throws EntityNotFoundException  {
         try {

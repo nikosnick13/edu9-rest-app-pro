@@ -1,4 +1,4 @@
-package gr.aueb.cf.eduapp.core.exeption;
+package gr.aueb.cf.eduapp.core.exceptions;
 
 public class EntityInvalidArgumentException extends AppGenericException{
 

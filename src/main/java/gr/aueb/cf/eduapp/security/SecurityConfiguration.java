@@ -14,8 +14,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -46,17 +44,19 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationProvider authenticationProvider)
             throws  Exception{
         http.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable) //πρεπει να ειναι disable
                 .authorizeHttpRequests(req -> req
 
-                        .requestMatchers(HttpMethod.POST ,"api/v1/users").permitAll()
-                        .requestMatchers(HttpMethod.GET, "api/v1/users/{uuid}").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/api/v1/users").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/api/v1/auth/authenticate").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/api/v1/users/**").hasAuthority("VIEW_USER")
+
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                .exceptionHandling( exeptions -> exeptions
+                .exceptionHandling(exceptions -> exceptions
                         .authenticationEntryPoint(myCustomAuthenticationEntryPoint())
                         .accessDeniedHandler(myCustomAccessDeniedHandler()));
 
@@ -64,6 +64,10 @@ public class SecurityConfiguration {
 
     }
 
+    /**
+     * Τhis metho is for configuration the cors.
+     * @return UrlBasedCorsConfigurationSource
+     */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

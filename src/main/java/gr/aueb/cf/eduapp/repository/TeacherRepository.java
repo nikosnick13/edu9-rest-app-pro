@@ -18,7 +18,7 @@ public interface TeacherRepository extends JpaRepository<Teacher,Long>,
     Optional<Teacher> findByPersonalInfo_Amka(String amka);
 
     @EntityGraph(attributePaths = {"personalInfo", "region"})
-    Page<Teacher> findAllByDeleteFalse(Pageable pageable);
+    Page<Teacher> findAllByDeletedFalse(Pageable pageable);
 
     Optional<Teacher> findByUuidAndDeletedFalse(UUID uuid);
     Optional<Teacher> findByVatAndDeletedFalse(String vat);

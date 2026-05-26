@@ -1,4 +1,4 @@
-package gr.aueb.cf.eduapp.core.exeption;
+package gr.aueb.cf.eduapp.core.exceptions;
 
 import gr.aueb.cf.eduapp.dto.ErrorResponseDTO;
 import gr.aueb.cf.eduapp.dto.ValidationResponseEntityDTO;
@@ -61,8 +61,8 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
 
     }
 
-    @ExceptionHandler(EntityAlreadyExistException.class)
-    public ResponseEntity<ErrorResponseDTO> handleEntityNotFoundException(EntityAlreadyExistException ex){
+    @ExceptionHandler(EntityAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponseDTO> handleEntityNotFoundException(EntityAlreadyExistsException ex){
         log.warn("Entity already exist. Message= {}",ex.getMessage());
 
         return ResponseEntity

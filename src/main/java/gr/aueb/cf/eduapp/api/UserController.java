@@ -1,13 +1,12 @@
 package gr.aueb.cf.eduapp.api;
 
-import gr.aueb.cf.eduapp.core.exeption.EntityAlreadyExistException;
-import gr.aueb.cf.eduapp.core.exeption.EntityInvalidArgumentException;
-import gr.aueb.cf.eduapp.core.exeption.EntityNotFoundException;
-import gr.aueb.cf.eduapp.core.exeption.ValidationException;
+import gr.aueb.cf.eduapp.core.exceptions.EntityAlreadyExistsException;
+import gr.aueb.cf.eduapp.core.exceptions.EntityInvalidArgumentException;
+import gr.aueb.cf.eduapp.core.exceptions.EntityNotFoundException;
+import gr.aueb.cf.eduapp.core.exceptions.ValidationException;
 import gr.aueb.cf.eduapp.dto.UserInsertDTO;
 import gr.aueb.cf.eduapp.dto.UserReadOnlyDTO;
 import gr.aueb.cf.eduapp.service.IUserService;
-import jakarta.servlet.Servlet;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +26,7 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<UserReadOnlyDTO> registerUsers(@Valid @RequestBody UserInsertDTO userInsertDTO, BindingResult bindingResult)
-        throws ValidationException, EntityInvalidArgumentException, EntityAlreadyExistException {
+        throws ValidationException, EntityInvalidArgumentException, EntityAlreadyExistsException {
 
         if(bindingResult.hasErrors()){
             throw new ValidationException("User", "Invalid user data",bindingResult);
