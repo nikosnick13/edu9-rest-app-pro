@@ -25,8 +25,8 @@ public class Region {
 
     @Setter(AccessLevel.PROTECTED)
     @Getter(AccessLevel.PRIVATE)
-    @OneToMany(mappedBy = "region",fetch = FetchType.LAZY)
-    HashSet<Teacher> teachers = new HashSet<>();
+    @OneToMany(mappedBy = "region", fetch = FetchType.LAZY)
+    private Set<Teacher> teachers = new HashSet<>();
 
     public Set<Teacher> getAllTeachers(){return Collections.unmodifiableSet(teachers);}
 

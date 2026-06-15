@@ -24,6 +24,7 @@ public interface ITeacherService {
     void saveAmkaFile(UUID uuid, MultipartFile amkaFile)
             throws FileUploadException, EntityNotFoundException;
 
+
 //    TeacherReadOnlyDTO updateTeacher(TeacherUpdateDTO teacherUpdateDTO)
 //            throws EntityNotFoundException, EntityAlreadyExistsException, EntityInvalidArgumentException;
 

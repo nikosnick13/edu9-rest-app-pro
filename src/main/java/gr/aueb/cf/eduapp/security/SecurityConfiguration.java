@@ -46,11 +46,11 @@ public class SecurityConfiguration {
         http.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable) //πρεπει να ειναι disable
                 .authorizeHttpRequests(req -> req
-
                         .requestMatchers(HttpMethod.POST,"/api/v1/users").permitAll()
                         .requestMatchers(HttpMethod.POST,"/api/v1/auth/authenticate").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/api/v1/teachers").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/api/v1/teachers/{uuid}/*").permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/v1/users/**").hasAuthority("VIEW_USER")
-
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
