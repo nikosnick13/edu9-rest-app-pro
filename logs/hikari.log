@@ -8,3 +8,8 @@
 2026-06-15 15:14:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
 2026-06-15 15:14:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-06-15 15:14:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-15 15:21:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-15 15:21:39 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e948f1c
+2026-06-15 15:21:39 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-15 15:37:14 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m5s84ms590µs900ns).
+2026-06-15 15:46:00 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m16s84ms816µs800ns).
