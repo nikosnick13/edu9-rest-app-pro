@@ -1,0 +1,149 @@
+2026-06-04 11:48:15 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+ 2026-06-04 11:48:16 INFO  gr.aueb.cf.eduapp.EduAppApplication - Starting EduAppApplication using Java 21.0.11 with PID 6340 (C:\Users\CyberPirate\Desktop\edu9-rest-app-pro\build\classes\java\main started by CyberPirate in C:\Users\CyberPirate\Desktop\edu9-rest-app-pro)
+ 2026-06-04 11:48:16 INFO  gr.aueb.cf.eduapp.EduAppApplication - The following 1 profile is active: "dev"
+ 2026-06-04 11:48:17 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ 2026-06-04 11:48:17 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 102 ms. Found 7 JPA repository interfaces.
+ 2026-06-04 11:48:18 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+ 2026-06-04 11:48:19 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3035 ms
+ 2026-06-04 11:48:20 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/schoolapp9csrpro?useSSL=true&serverTimezone=UTC (MySQL 8.0)
+ 2026-06-04 11:48:20 INFO  o.f.core.internal.command.DbValidate - Successfully validated 4 migrations (execution time 00:00.096s)
+ 2026-06-04 11:48:20 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `schoolapp9csrpro`: 4
+ 2026-06-04 11:48:20 INFO  o.f.core.internal.command.DbMigrate - Schema `schoolapp9csrpro` is up to date. No migration necessary.
+ 2026-06-04 11:48:21 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.44.Final
+ 2026-06-04 11:48:21 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+ 2026-06-04 11:48:21 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+ 2026-06-04 11:48:22 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.44
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+ 2026-06-04 11:48:24 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+ 2026-06-04 11:48:24 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ 2026-06-04 11:48:25 INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+ 2026-06-04 11:48:25 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+ 2026-06-04 11:48:27 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+ 2026-06-04 11:48:27 INFO  gr.aueb.cf.eduapp.EduAppApplication - Started EduAppApplication in 12.414 seconds (process running for 12.97)
+ 2026-06-04 11:54:25 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+ 2026-06-04 11:54:25 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+ 2026-06-04 11:54:25 WARN  g.a.c.e.s.CustomAuthenticationEntryPoint - User not authenticated, with message=Full authentication is required to access this resource
+ 2026-06-04 11:54:40 WARN  g.a.c.e.s.CustomAuthenticationEntryPoint - User not authenticated, with message=Full authentication is required to access this resource
+ 2026-06-04 11:54:41 WARN  g.a.c.e.s.CustomAuthenticationEntryPoint - User not authenticated, with message=Full authentication is required to access this resource
+ 2026-06-04 11:55:11 WARN  g.a.c.e.s.CustomAuthenticationEntryPoint - User not authenticated, with message=Full authentication is required to access this resource
+ 2026-06-04 11:55:15 WARN  g.a.c.e.s.CustomAuthenticationEntryPoint - User not authenticated, with message=Full authentication is required to access this resource
+ 2026-06-04 11:55:17 WARN  g.a.c.e.s.CustomAuthenticationEntryPoint - User not authenticated, with message=Full authentication is required to access this resource
+ 2026-06-04 11:55:28 WARN  g.a.c.e.core.exceptions.ErrorHandler - Validation Failed. Message= TeacherValidationError
+ 2026-06-04 11:56:28 WARN  g.a.c.e.v.TeacherInsertValidator - Save failed. Teacher with vat=123456789 already exists
+ 2026-06-04 11:56:28 WARN  g.a.c.e.core.exceptions.ErrorHandler - Validation Failed. Message= TeacherValidationError
+ 2026-06-04 11:56:40 ERROR g.a.c.e.service.TeacherServiceImpl - Save failed for teacher with vat=123423789. Teacher already exists
+ gr.aueb.cf.eduapp.core.exceptions.EntityAlreadyExistsException: AMKAAlreadyExist
+	at gr.aueb.cf.eduapp.service.TeacherServiceImpl.saveTeacher(TeacherServiceImpl.java:67)
+2026-06-04 11:56:40 WARN  g.a.c.e.core.exceptions.ErrorHandler - Entity already exist. Message= AMKAAlreadyExist
+ 2026-06-04 11:56:52 ERROR g.a.c.e.service.TeacherServiceImpl - Save failed for teacher with vat=123423789. Teacher already exists
+ gr.aueb.cf.eduapp.core.exceptions.EntityAlreadyExistsException: IdentityNumberAlreadyExist
+	at gr.aueb.cf.eduapp.service.TeacherServiceImpl.saveTeacher(TeacherServiceImpl.java:75)
+2026-06-04 11:56:52 WARN  g.a.c.e.core.exceptions.ErrorHandler - Entity already exist. Message= IdentityNumberAlreadyExist
+ 2026-06-04 12:03:05 INFO  g.a.c.e.service.TeacherServiceImpl - Teacher with vat=123423789 saved successfully.
+ 2026-06-04 12:11:50 WARN  g.a.c.e.s.CustomAuthenticationEntryPoint - User not authenticated, with message=Full authentication is required to access this resource
+ 2026-06-04 12:13:05 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+ 2026-06-04 12:13:05 INFO  gr.aueb.cf.eduapp.EduAppApplication - Starting EduAppApplication using Java 21.0.11 with PID 24252 (C:\Users\CyberPirate\Desktop\edu9-rest-app-pro\build\classes\java\main started by CyberPirate in C:\Users\CyberPirate\Desktop\edu9-rest-app-pro)
+ 2026-06-04 12:13:05 INFO  gr.aueb.cf.eduapp.EduAppApplication - The following 1 profile is active: "dev"
+ 2026-06-04 12:13:06 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ 2026-06-04 12:13:06 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 110 ms. Found 7 JPA repository interfaces.
+ 2026-06-04 12:13:07 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+ 2026-06-04 12:13:07 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2502 ms
+ 2026-06-04 12:13:08 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/schoolapp9csrpro?useSSL=true&serverTimezone=UTC (MySQL 8.0)
+ 2026-06-04 12:13:08 INFO  o.f.core.internal.command.DbValidate - Successfully validated 4 migrations (execution time 00:00.061s)
+ 2026-06-04 12:13:08 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `schoolapp9csrpro`: 4
+ 2026-06-04 12:13:08 INFO  o.f.core.internal.command.DbMigrate - Schema `schoolapp9csrpro` is up to date. No migration necessary.
+ 2026-06-04 12:13:09 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.44.Final
+ 2026-06-04 12:13:09 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+ 2026-06-04 12:13:09 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+ 2026-06-04 12:13:09 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.44
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+ 2026-06-04 12:13:11 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+ 2026-06-04 12:13:11 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ 2026-06-04 12:13:12 INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+ 2026-06-04 12:13:12 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+ 2026-06-04 12:13:13 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Injection of autowired dependencies failed
+ 2026-06-04 12:13:13 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+ 2026-06-04 12:13:13 ERROR o.s.boot.SpringApplication - Application run failed
+ org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:515)
+Caused by: java.lang.RuntimeException: Could not postProcess org.springframework.security.config.annotation.web.builders.WebSecurity@5297030e of type class org.springframework.security.config.annotation.web.builders.WebSecurity
+	at org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor.postProcess(AutowireBeanFactoryObjectPostProcessor.java:71)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcHandlerMappingIntrospectorRequestTransformer': Cannot resolve reference to bean 'mvcHandlerMappingIntrospector' while setting constructor argument
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcHandlerMappingIntrospector' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'teacherRestController' method 
+gr.aueb.cf.eduapp.api.TeacherRestController#saveTeacher(TeacherInsertDTO, BindingResult)
+to {POST [/api/v1/teachers]}: There is already 'teacherRestController' bean method
+gr.aueb.cf.eduapp.api.TeacherRestController#saveAttachment(UUID, MultipartFile) mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'teacherRestController' method 
+gr.aueb.cf.eduapp.api.TeacherRestController#saveTeacher(TeacherInsertDTO, BindingResult)
+to {POST [/api/v1/teachers]}: There is already 'teacherRestController' bean method
+gr.aueb.cf.eduapp.api.TeacherRestController#saveAttachment(UUID, MultipartFile) mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826)
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'teacherRestController' method 
+gr.aueb.cf.eduapp.api.TeacherRestController#saveTeacher(TeacherInsertDTO, BindingResult)
+to {POST [/api/v1/teachers]}: There is already 'teacherRestController' bean method
+gr.aueb.cf.eduapp.api.TeacherRestController#saveAttachment(UUID, MultipartFile) mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:677)
+2026-06-04 12:14:18 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+ 2026-06-04 12:14:18 INFO  gr.aueb.cf.eduapp.EduAppApplication - Starting EduAppApplication using Java 21.0.11 with PID 31992 (C:\Users\CyberPirate\Desktop\edu9-rest-app-pro\build\classes\java\main started by CyberPirate in C:\Users\CyberPirate\Desktop\edu9-rest-app-pro)
+ 2026-06-04 12:14:18 INFO  gr.aueb.cf.eduapp.EduAppApplication - The following 1 profile is active: "dev"
+ 2026-06-04 12:14:19 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ 2026-06-04 12:14:19 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 112 ms. Found 7 JPA repository interfaces.
+ 2026-06-04 12:14:20 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+ 2026-06-04 12:14:20 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2449 ms
+ 2026-06-04 12:14:21 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/schoolapp9csrpro?useSSL=true&serverTimezone=UTC (MySQL 8.0)
+ 2026-06-04 12:14:21 INFO  o.f.core.internal.command.DbValidate - Successfully validated 4 migrations (execution time 00:00.058s)
+ 2026-06-04 12:14:21 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `schoolapp9csrpro`: 4
+ 2026-06-04 12:14:21 INFO  o.f.core.internal.command.DbMigrate - Schema `schoolapp9csrpro` is up to date. No migration necessary.
+ 2026-06-04 12:14:22 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.44.Final
+ 2026-06-04 12:14:22 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+ 2026-06-04 12:14:22 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+ 2026-06-04 12:14:22 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.44
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+ 2026-06-04 12:14:24 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+ 2026-06-04 12:14:24 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ 2026-06-04 12:14:25 INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+ 2026-06-04 12:14:25 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+ 2026-06-04 12:14:25 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Injection of autowired dependencies failed
+ 2026-06-04 12:14:25 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+ 2026-06-04 12:14:25 ERROR o.s.boot.SpringApplication - Application run failed
+ org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:515)
+Caused by: java.lang.RuntimeException: Could not postProcess org.springframework.security.config.annotation.web.builders.WebSecurity@5297030e of type class org.springframework.security.config.annotation.web.builders.WebSecurity
+	at org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor.postProcess(AutowireBeanFactoryObjectPostProcessor.java:71)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcHandlerMappingIntrospectorRequestTransformer': Cannot resolve reference to bean 'mvcHandlerMappingIntrospector' while setting constructor argument
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcHandlerMappingIntrospector' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'teacherRestController' method 
+gr.aueb.cf.eduapp.api.TeacherRestController#saveAttachment(UUID, MultipartFile)
+to {POST [/api/v1/teachers]}: There is already 'teacherRestController' bean method
+gr.aueb.cf.eduapp.api.TeacherRestController#saveTeacher(TeacherInsertDTO, BindingResult) mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'teacherRestController' method 
+gr.aueb.cf.eduapp.api.TeacherRestController#saveAttachment(UUID, MultipartFile)
+to {POST [/api/v1/teachers]}: There is already 'teacherRestController' bean method
+gr.aueb.cf.eduapp.api.TeacherRestController#saveTeacher(TeacherInsertDTO, BindingResult) mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826)
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'teacherRestController' method 
+gr.aueb.cf.eduapp.api.TeacherRestController#saveAttachment(UUID, MultipartFile)
+to {POST [/api/v1/teachers]}: There is already 'teacherRestController' bean method
+gr.aueb.cf.eduapp.api.TeacherRestController#saveTeacher(TeacherInsertDTO, BindingResult) mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:677)

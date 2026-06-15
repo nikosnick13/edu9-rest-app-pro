@@ -1,0 +1,107 @@
+2026-06-01 10:45:01 WARN  g.a.c.e.s.CustomAuthenticationEntryPoint - User not authenticated, with message=Full authentication is required to access this resource
+ 2026-06-01 10:50:10 INFO  o.h.e.i.DefaultLoadEventListener - HHH000327: Error performing load command
+ org.hibernate.PropertyAccessException: Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:88)
+Caused by: java.lang.IllegalArgumentException: Can not set java.util.HashSet field gr.aueb.cf.eduapp.model.static_data.Region.teachers to org.hibernate.collection.spi.PersistentSet
+	at java.base/jdk.internal.reflect.FieldAccessorImpl.throwSetIllegalArgumentException(FieldAccessorImpl.java:228)
+2026-06-01 10:50:11 WARN  g.a.c.e.core.exceptions.ErrorHandler - File upload fail. Message= Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+ 2026-06-01 10:55:19 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+ 2026-06-01 10:55:19 INFO  gr.aueb.cf.eduapp.EduAppApplication - Starting EduAppApplication using Java 21.0.10 with PID 10484 (started by CyberPirate in C:\Users\CyberPirate\Desktop\edu9-rest-app-pro)
+ 2026-06-01 10:55:19 INFO  gr.aueb.cf.eduapp.EduAppApplication - The following 1 profile is active: "dev"
+ 2026-06-01 10:55:19 INFO  gr.aueb.cf.eduapp.EduAppApplication - Started EduAppApplication in 0.621 seconds (process running for 1.979)
+ 2026-06-01 11:27:03 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+ 2026-06-01 11:27:03 INFO  gr.aueb.cf.eduapp.EduAppApplication - Starting EduAppApplication using Java 21.0.11 with PID 23836 (started by CyberPirate in C:\Users\CyberPirate\Desktop\edu9-rest-app-pro)
+ 2026-06-01 11:27:03 INFO  gr.aueb.cf.eduapp.EduAppApplication - The following 1 profile is active: "dev"
+ 2026-06-01 11:27:03 INFO  gr.aueb.cf.eduapp.EduAppApplication - Started EduAppApplication in 0.712 seconds (process running for 2.133)
+ 2026-06-01 11:27:12 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+ 2026-06-01 11:27:12 INFO  gr.aueb.cf.eduapp.EduAppApplication - Starting EduAppApplication using Java 21.0.11 with PID 15872 (C:\Users\CyberPirate\Desktop\edu9-rest-app-pro\build\classes\java\main started by CyberPirate in C:\Users\CyberPirate\Desktop\edu9-rest-app-pro)
+ 2026-06-01 11:27:12 INFO  gr.aueb.cf.eduapp.EduAppApplication - The following 1 profile is active: "dev"
+ 2026-06-01 11:27:13 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ 2026-06-01 11:27:13 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 98 ms. Found 7 JPA repository interfaces.
+ 2026-06-01 11:27:14 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+ 2026-06-01 11:27:15 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2102 ms
+ 2026-06-01 11:27:15 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/schoolapp9csrpro?useSSL=true&serverTimezone=UTC (MySQL 8.0)
+ 2026-06-01 11:27:16 INFO  o.f.core.internal.command.DbValidate - Successfully validated 4 migrations (execution time 00:00.055s)
+ 2026-06-01 11:27:16 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `schoolapp9csrpro`: 4
+ 2026-06-01 11:27:16 INFO  o.f.core.internal.command.DbMigrate - Schema `schoolapp9csrpro` is up to date. No migration necessary.
+ 2026-06-01 11:27:16 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.44.Final
+ 2026-06-01 11:27:16 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+ 2026-06-01 11:27:16 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+ 2026-06-01 11:27:16 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.44
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+ 2026-06-01 11:27:18 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+ 2026-06-01 11:27:18 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ 2026-06-01 11:27:18 INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+ 2026-06-01 11:27:18 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+ 2026-06-01 11:27:19 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+ 2026-06-01 11:27:19 INFO  gr.aueb.cf.eduapp.EduAppApplication - Started EduAppApplication in 7.777 seconds (process running for 8.189)
+ 2026-06-01 11:27:43 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+ 2026-06-01 11:27:43 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+ 2026-06-01 11:27:43 INFO  o.h.e.i.DefaultLoadEventListener - HHH000327: Error performing load command
+ org.hibernate.PropertyAccessException: Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:88)
+Caused by: java.lang.IllegalArgumentException: Can not set java.util.HashSet field gr.aueb.cf.eduapp.model.static_data.Region.teachers to org.hibernate.collection.spi.PersistentSet
+	at java.base/jdk.internal.reflect.FieldAccessorImpl.throwSetIllegalArgumentException(FieldAccessorImpl.java:228)
+2026-06-01 11:27:44 WARN  g.a.c.e.core.exceptions.ErrorHandler - File upload fail. Message= Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+ 2026-06-01 11:27:55 INFO  o.h.e.i.DefaultLoadEventListener - HHH000327: Error performing load command
+ org.hibernate.PropertyAccessException: Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:88)
+Caused by: java.lang.IllegalArgumentException: Can not set java.util.HashSet field gr.aueb.cf.eduapp.model.static_data.Region.teachers to org.hibernate.collection.spi.PersistentSet
+	at java.base/jdk.internal.reflect.FieldAccessorImpl.throwSetIllegalArgumentException(FieldAccessorImpl.java:228)
+2026-06-01 11:27:55 WARN  g.a.c.e.core.exceptions.ErrorHandler - File upload fail. Message= Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+ 2026-06-01 11:27:56 INFO  o.h.e.i.DefaultLoadEventListener - HHH000327: Error performing load command
+ org.hibernate.PropertyAccessException: Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:88)
+Caused by: java.lang.IllegalArgumentException: Can not set java.util.HashSet field gr.aueb.cf.eduapp.model.static_data.Region.teachers to org.hibernate.collection.spi.PersistentSet
+	at java.base/jdk.internal.reflect.FieldAccessorImpl.throwSetIllegalArgumentException(FieldAccessorImpl.java:228)
+2026-06-01 11:27:56 WARN  g.a.c.e.core.exceptions.ErrorHandler - File upload fail. Message= Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+ 2026-06-01 11:27:57 INFO  o.h.e.i.DefaultLoadEventListener - HHH000327: Error performing load command
+ org.hibernate.PropertyAccessException: Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:88)
+Caused by: java.lang.IllegalArgumentException: Can not set java.util.HashSet field gr.aueb.cf.eduapp.model.static_data.Region.teachers to org.hibernate.collection.spi.PersistentSet
+	at java.base/jdk.internal.reflect.FieldAccessorImpl.throwSetIllegalArgumentException(FieldAccessorImpl.java:228)
+2026-06-01 11:27:57 WARN  g.a.c.e.core.exceptions.ErrorHandler - File upload fail. Message= Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+ 2026-06-01 11:27:58 INFO  o.h.e.i.DefaultLoadEventListener - HHH000327: Error performing load command
+ org.hibernate.PropertyAccessException: Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:88)
+Caused by: java.lang.IllegalArgumentException: Can not set java.util.HashSet field gr.aueb.cf.eduapp.model.static_data.Region.teachers to org.hibernate.collection.spi.PersistentSet
+	at java.base/jdk.internal.reflect.FieldAccessorImpl.throwSetIllegalArgumentException(FieldAccessorImpl.java:228)
+2026-06-01 11:27:58 WARN  g.a.c.e.core.exceptions.ErrorHandler - File upload fail. Message= Could not set value of type [org.hibernate.collection.spi.PersistentSet]: 'gr.aueb.cf.eduapp.model.static_data.Region.teachers' (setter)
+ 2026-06-01 11:32:34 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+ 2026-06-01 11:32:34 INFO  gr.aueb.cf.eduapp.EduAppApplication - Starting EduAppApplication using Java 21.0.11 with PID 7192 (C:\Users\CyberPirate\Desktop\edu9-rest-app-pro\build\classes\java\main started by CyberPirate in C:\Users\CyberPirate\Desktop\edu9-rest-app-pro)
+ 2026-06-01 11:32:34 INFO  gr.aueb.cf.eduapp.EduAppApplication - The following 1 profile is active: "dev"
+ 2026-06-01 11:32:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ 2026-06-01 11:32:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68 ms. Found 7 JPA repository interfaces.
+ 2026-06-01 11:32:36 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+ 2026-06-01 11:32:36 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2040 ms
+ 2026-06-01 11:32:37 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/schoolapp9csrpro?useSSL=true&serverTimezone=UTC (MySQL 8.0)
+ 2026-06-01 11:32:37 INFO  o.f.core.internal.command.DbValidate - Successfully validated 4 migrations (execution time 00:00.041s)
+ 2026-06-01 11:32:37 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `schoolapp9csrpro`: 4
+ 2026-06-01 11:32:37 INFO  o.f.core.internal.command.DbMigrate - Schema `schoolapp9csrpro` is up to date. No migration necessary.
+ 2026-06-01 11:32:38 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.44.Final
+ 2026-06-01 11:32:38 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+ 2026-06-01 11:32:38 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+ 2026-06-01 11:32:38 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.44
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+ 2026-06-01 11:32:39 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+ 2026-06-01 11:32:40 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ 2026-06-01 11:32:40 INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+ 2026-06-01 11:32:40 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+ 2026-06-01 11:32:41 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+ 2026-06-01 11:32:41 INFO  gr.aueb.cf.eduapp.EduAppApplication - Started EduAppApplication in 7.449 seconds (process running for 7.792)
+ 2026-06-01 11:32:47 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+ 2026-06-01 11:32:47 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+ 2026-06-01 11:32:48 INFO  g.a.c.e.service.TeacherServiceImpl - Teacher with vat=123456789 saved successfully.
+ 
