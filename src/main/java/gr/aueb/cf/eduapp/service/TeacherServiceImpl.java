@@ -6,14 +6,16 @@ import gr.aueb.cf.eduapp.core.exceptions.EntityNotFoundException;
 import gr.aueb.cf.eduapp.core.exceptions.FileUploadException;
 //import gr.aueb.cf.eduapp.core.filters.Paginated;
 //import gr.aueb.cf.eduapp.core.filters.TeacherFilters;
-//import gr.aueb.cf.eduapp.dto.TeacherUpdateDTO;
+import gr.aueb.cf.eduapp.core.filters.TeacherFilters;
 import gr.aueb.cf.eduapp.dto.TeacherInsertDTO;
 import gr.aueb.cf.eduapp.dto.TeacherReadOnlyDTO;
+import gr.aueb.cf.eduapp.dto.TeacherUpdateDTO;
 import gr.aueb.cf.eduapp.mapper.Mapper;
 import gr.aueb.cf.eduapp.model.*;
 import gr.aueb.cf.eduapp.model.static_data.Region;
 import gr.aueb.cf.eduapp.repository.*;
 //import gr.aueb.cf.eduapp.specification.TeacherSpecification;
+import gr.aueb.cf.eduapp.specification.TeacherSpecification;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tika.Tika;
@@ -29,7 +31,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -50,6 +51,7 @@ public class TeacherServiceImpl implements ITeacherService {
     private final PersonalInfoRepository personalInfoRepository;
     private final Mapper mapper;
     private final PasswordEncoder passwordEncoder;
+
 
     @Value("${file.upload.dir}")
     private String uploadDir;
@@ -127,56 +129,57 @@ public class TeacherServiceImpl implements ITeacherService {
         return teachersPage.map(mapper::mapToTeacherReadOnlyDTO);
     }
 
-//    @Override
-//    @PreAuthorize("hasAuthority('EDIT_TEACHER')")
-//    @Transactional(rollbackFor = { EntityNotFoundException.class, EntityAlreadyExistsException.class, EntityInvalidArgumentException.class} )
-//    public TeacherReadOnlyDTO updateTeacher(TeacherUpdateDTO dto)
-//            throws EntityNotFoundException, EntityAlreadyExistsException, EntityInvalidArgumentException {
-//        try {
-//            Teacher teacher = teacherRepository.findByUuid(dto.uuid())
-//                    .orElseThrow(() -> new EntityNotFoundException("Teacher", "Teacher with uuid=" + dto.uuid() + " not found"));
-//
-//            teacher.setFirstname(dto.firstname());
-//            teacher.setLastname(dto.lastname());
-//
-//            if (!teacher.getVat().equals(dto.vat())) {
-//                if (teacherRepository.findByVat(dto.vat()).isPresent()) {
-//                    throw new EntityAlreadyExistsException("","Teacher with vat=" + dto.vat() + " already exists");
-//                }
-//                teacher.setVat(dto.vat());
-//            }
-//
-//            if (!teacher.getPersonalInfo().getIdentityNumber().equals(dto.personalInfoUpdateDTO().identityNumber()) &&
-//                    personalInfoRepository.findByIdentityNumber(dto.personalInfoUpdateDTO().identityNumber()).isPresent()) {
-//                throw new EntityAlreadyExistsException("Teacher", "Teacher with identity number " + dto.personalInfoUpdateDTO().identityNumber() + " already exists");
-//            }
-//
-//            if (!Objects.equals(dto.regionId(), teacher.getRegion().getId())) {
-//                Region region = regionRepository.findById(dto.regionId())
-//                        .orElseThrow(() -> new EntityInvalidArgumentException("Region","Region id=" + dto.regionId() + " invalid"));
-//                Region oldRegion = teacher.getRegion();
-//                if (oldRegion != null) {
-//                    oldRegion.removeTeacher(teacher);
-//                }
-//                region.addTeacher(teacher);
-//            }
-//            // user username and password updated TODO
-//            // other features to be updated TODO
-//
-//            teacherRepository.save(teacher);    // προαιρετικό
-//            log.info("Teacher with uuid={} updated successfully", dto.uuid());
-//            return mapper.mapToTeacherReadOnlyDTO(teacher);
-//        } catch (EntityNotFoundException e) {
-//            log.error("Update failed for teacher with uuid={}. Teacher not found", dto.uuid(), e);
-//            throw e;
-//        } catch (EntityAlreadyExistsException e) {
-//            log.error("Update failed for teacher with uuid={}. Teacher with vat={} already exists", dto.uuid(), dto.vat(), e);
-//            throw e;
-//        } catch (EntityInvalidArgumentException e) {
-//            log.error("Update failed for teacher with uuid={}. Region id={} invalid", dto.uuid(), dto.regionId(), e);
-//            throw e;
-//        }
-//    }
+    @Override
+    @PreAuthorize("hasAuthority('EDIT_TEACHER')")
+    @Transactional(rollbackFor = { EntityNotFoundException.class, EntityAlreadyExistsException.class, EntityInvalidArgumentException.class} )
+    public TeacherReadOnlyDTO updateTeacher(TeacherUpdateDTO dto)
+            throws EntityNotFoundException, EntityAlreadyExistsException, EntityInvalidArgumentException {
+        try {
+            Teacher teacher = teacherRepository.findByUuid(dto.uuid())
+                    .orElseThrow(() -> new EntityNotFoundException("Teacher", "Teacher with uuid=" + dto.uuid() + " not found"));
+
+            teacher.setFirstname(dto.firstname());
+            teacher.setLastname(dto.lastname());
+
+            if (!teacher.getVat().equals(dto.vat())) {
+                if (teacherRepository.findByVat(dto.vat()).isPresent()) {
+                    throw new EntityAlreadyExistsException("","Teacher with vat=" + dto.vat() + " already exists");
+                }
+                teacher.setVat(dto.vat());
+            }
+
+            if (!teacher.getPersonalInfo().getIdentityNumber().equals(dto.personalInfoUpdateDTO().identityNumber()) &&
+                    personalInfoRepository.findByIdentityNumber(dto.personalInfoUpdateDTO().identityNumber()).isPresent()) {
+                throw new EntityAlreadyExistsException("Teacher", "Teacher with identity number " + dto.personalInfoUpdateDTO().identityNumber() + " already exists");
+            }
+
+            if (!Objects.equals(dto.regionId(), teacher.getRegion().getId())) {
+                Region region = regionRepository.findById(dto.regionId())
+                        .orElseThrow(() -> new EntityInvalidArgumentException("Region","Region id=" + dto.regionId() + " invalid"));
+                Region oldRegion = teacher.getRegion();
+                if (oldRegion != null) {
+                    oldRegion.removeTeacher(teacher);
+                }
+                region.addTeacher(teacher);
+            }
+
+            // user username and password updated TODO
+            // other features to be updated TODO
+
+            teacherRepository.save(teacher);    // προαιρετικό
+            log.info("Teacher with uuid={} updated successfully", dto.uuid());
+            return mapper.mapToTeacherReadOnlyDTO(teacher);
+        } catch (EntityNotFoundException e) {
+            log.error("Update failed for teacher with uuid={}. Teacher not found", dto.uuid(), e);
+            throw e;
+        } catch (EntityAlreadyExistsException e) {
+            log.error("Update failed for teacher with uuid={}. Teacher with vat={} already exists", dto.uuid(), dto.vat(), e);
+            throw e;
+        } catch (EntityInvalidArgumentException e) {
+            log.error("Update failed for teacher with uuid={}. Region id={} invalid", dto.uuid(), dto.regionId(), e);
+            throw e;
+        }
+    }
 
     @Override
     @PreAuthorize("hasAuthority('DELETE_TEACHER')")
@@ -290,65 +293,40 @@ public class TeacherServiceImpl implements ITeacherService {
         }
     }
 
-//    public void saveAmkaFile(PersonalInfo personalInfo, MultipartFile amkaFile)
-//            throws IOException {
-//
-//        String originalFilename = amkaFile.getOriginalFilename();
-//        String savedName = UUID.randomUUID().toString() + getFileExtension(originalFilename);
-//
-//        String uploadDirectory = "uploads/";
-//        Path filePath = Paths.get(uploadDirectory + savedName);
-//
-//        Files.createDirectories(filePath.getParent());
-////        Files.write(filePath, amkaFile.getBytes());
-//        amkaFile.transferTo(filePath);  // safe for large files, more efficient
-//
-//        Attachment attachment = new Attachment();
-//        attachment.setFilename(originalFilename);
-//        attachment.setSavedName(savedName);
-//        attachment.setFilePath(filePath.toString());
-//        attachment.setContentType(amkaFile.getContentType());
-//        attachment.setExtension(getFileExtension(originalFilename));
-//
-//        personalInfo.setAmkaFile(attachment);
-//        log.info("Attachment for teacher with amka={} saved", personalInfo.getAmka());
-//    }
+    @Override
+    @PreAuthorize("hasAuthority('VIEW_TEACHERS')")
+    @Transactional(readOnly = true)
+    public Page<TeacherReadOnlyDTO> getTeachersPaginatedFiltered(Pageable pageable, TeacherFilters filters)
+            throws EntityNotFoundException {
+        try {
+            if (filters.getUuid() != null) {
+                Teacher teacher = teacherRepository.findByUuid(filters.getUuid())
+                        .orElseThrow(() -> new EntityNotFoundException("Teacher", "uuid=" + filters.getUuid() + " not found"));
+                return singleResultPage(teacher, pageable);
+            }
 
-//
-//    @Override
-//    @PreAuthorize("hasAuthority('VIEW_TEACHERS')")
-//    @Transactional(readOnly = true)
-//    public Page<TeacherReadOnlyDTO> getTeachersPaginatedFiltered(Pageable pageable, TeacherFilters filters)
-//            throws EntityNotFoundException {
-//        try {
-//            if (filters.getUuid() != null) {
-//                Teacher teacher = teacherRepository.findByUuid(filters.getUuid())
-//                        .orElseThrow(() -> new EntityNotFoundException("Teacher", "uuid=" + filters.getUuid() + " not found"));
-//                return singleResultPage(teacher, pageable);
-//            }
-//
-//            if (filters.getVat() != null) {
-//                Teacher teacher = teacherRepository.findByVat(filters.getVat())
-//                        .orElseThrow(() -> new EntityNotFoundException("Teacher", "vat=" + filters.getVat() + " not found"));
-//                return singleResultPage(teacher, pageable);
-//            }
-//
-//            if (filters.getAmka() != null) {
-//                Teacher teacher = teacherRepository.findByPersonalInfo_Amka(filters.getAmka())
-//                        .orElseThrow(() -> new EntityNotFoundException("Teacher", "amka=" + filters.getAmka() + " not found"));
-//                return singleResultPage(teacher, pageable);
-//            }
-//
-//            var filtered = teacherRepository.findAll(TeacherSpecification.build(filters), pageable);
-//
-//            log.debug("Filtered and paginated teachers were returned successfully with page={} and size={}", pageable.getPageNumber(),
-//                    pageable.getPageSize());
-//            return filtered.map(mapper::mapToTeacherReadOnlyDTO);
-//        } catch (EntityNotFoundException e) {
-//            log.error("Filtered and paginated teachers were not found", e);
-//            throw e;
-//        }
-//    }
+            if (filters.getVat() != null) {
+                Teacher teacher = teacherRepository.findByVat(filters.getVat())
+                        .orElseThrow(() -> new EntityNotFoundException("Teacher", "vat=" + filters.getVat() + " not found"));
+                return singleResultPage(teacher, pageable);
+            }
+
+            if (filters.getAmka() != null) {
+                Teacher teacher = teacherRepository.findByPersonalInfo_Amka(filters.getAmka())
+                        .orElseThrow(() -> new EntityNotFoundException("Teacher", "amka=" + filters.getAmka() + " not found"));
+                return singleResultPage(teacher, pageable);
+            }
+
+            var filtered = teacherRepository.findAll(TeacherSpecification.build(filters), pageable);
+
+            log.debug("Filtered and paginated teachers were returned successfully with page={} and size={}", pageable.getPageNumber(),
+                    pageable.getPageSize());
+            return filtered.map(mapper::mapToTeacherReadOnlyDTO);
+        } catch (EntityNotFoundException e) {
+            log.error("Filtered and paginated teachers were not found", e);
+            throw e;
+        }
+    }
 
     private String getFileExtension(String filename) {
         if (filename != null && filename.contains(".")) {
