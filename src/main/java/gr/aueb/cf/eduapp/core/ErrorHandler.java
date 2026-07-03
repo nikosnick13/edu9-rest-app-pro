@@ -1,5 +1,6 @@
-package gr.aueb.cf.eduapp.core.exceptions;
+package gr.aueb.cf.eduapp.core;
 
+import gr.aueb.cf.eduapp.core.exceptions.*;
 import gr.aueb.cf.eduapp.dto.ErrorResponseDTO;
 import gr.aueb.cf.eduapp.dto.ValidationResponseEntityDTO;
 import jakarta.servlet.http.HttpServletRequest;
