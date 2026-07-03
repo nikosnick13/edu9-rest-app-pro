@@ -46,10 +46,9 @@ public class SecurityConfiguration {
         http.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable) //πρεπει να ειναι disable
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers(HttpMethod.POST,"/api/v1/users").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
                         .requestMatchers(HttpMethod.POST,"/api/v1/auth/authenticate").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/api/v1/teachers").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/api/v1/teachers/{uuid}/*").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/teachers").permitAll()
                         .requestMatchers(
                                 "/swagger-ui.html",        // The old Swagger UI HTML (if used)
                                 "/swagger-ui/**",          // All Swagger UI resources (JS, CSS, etc.)
@@ -59,7 +58,8 @@ public class SecurityConfiguration {
                                 "/configuration/**"        // Swagger configuration endpoints
                         ).permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/v1/users/**").hasAuthority("VIEW_USER")
-                        .requestMatchers(HttpMethod.PUT, "/api/v1/teachers/{uuid}/").hasAuthority("EDIT_TEACHER")
+                        .requestMatchers(HttpMethod.POST, "/api/v1/teachers/{uuid}/amka-file").hasAuthority("EDIT_TEACHER")
+                        .requestMatchers(HttpMethod.PUT, "/api/v1/teachers/{uuid}").hasAuthority("EDIT_TEACHER")
                         .requestMatchers(HttpMethod.GET, "/api/v1/teachers").hasAuthority("VIEW_TEACHERS")
                         .requestMatchers(HttpMethod.GET, "/api/v1/teachers/{uuid}").hasAnyAuthority("VIEW_TEACHER", "VIEW_ONLY_TEACHER")
                         .requestMatchers(HttpMethod.DELETE,"/api/v1/teachers/{uuid}").hasAuthority("DELETE_TEACHER")
