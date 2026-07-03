@@ -1,18 +1,7 @@
-2026-06-15 15:12:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-15 15:12:58 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6dd20ec9
-2026-06-15 15:12:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-15 15:13:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-06-15 15:13:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-06-15 15:14:37 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-15 15:14:38 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1fd37440
-2026-06-15 15:14:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-15 15:14:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-06-15 15:14:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-06-15 15:21:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-15 15:21:39 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e948f1c
-2026-06-15 15:21:39 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-15 15:37:14 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m5s84ms590µs900ns).
-2026-06-15 15:46:00 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m16s84ms816µs800ns).
-2026-06-15 16:27:43 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m13s23ms637µs900ns).
-2026-06-15 16:58:39 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m43s184ms375µs600ns).
-2026-06-15 17:33:37 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m57s39ms9µs).
+2026-07-03 09:58:04 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14h24m35s876ms504µs500ns).
+2026-07-03 11:36:08 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=41m3s746ms400µs).
+2026-07-03 13:20:52 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m42s123ms564µs200ns).
+2026-07-03 14:14:23 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-03 14:14:23 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5abbb273
+2026-07-03 14:14:23 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-03 14:16:50 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m26s616ms118µs900ns).
