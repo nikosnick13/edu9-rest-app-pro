@@ -63,6 +63,12 @@ public class UserService implements IUserService{
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public boolean isUserExists(String username) {
+        return userRepository.findByUsername(username).isPresent();
+    }
+
+    @Override
     @PreAuthorize("hasAuthority('VIEW_USER')")
     @Transactional(readOnly = true)
     public UserReadOnlyDTO getUserByUUID(UUID uuid) throws EntityNotFoundException {
