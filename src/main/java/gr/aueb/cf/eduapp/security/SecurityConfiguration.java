@@ -50,8 +50,19 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST,"/api/v1/auth/authenticate").permitAll()
                         .requestMatchers(HttpMethod.POST,"/api/v1/teachers").permitAll()
                         .requestMatchers(HttpMethod.POST,"/api/v1/teachers/{uuid}/*").permitAll()
+                        .requestMatchers(
+                                "/swagger-ui.html",        // The old Swagger UI HTML (if used)
+                                "/swagger-ui/**",          // All Swagger UI resources (JS, CSS, etc.)
+                                "/v3/api-docs/**",         // The API JSON docs
+                                "/v3/api-docs.yaml",       // YAML version of the docs
+                                "/swagger-resources/**",   // Swagger resource descriptors
+                                "/configuration/**"        // Swagger configuration endpoints
+                        ).permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/v1/users/**").hasAuthority("VIEW_USER")
                         .requestMatchers(HttpMethod.PUT, "/api/v1/teachers/{uuid}/").hasAuthority("EDIT_TEACHER")
+                        .requestMatchers(HttpMethod.GET, "/api/v1/teachers").hasAuthority("VIEW_TEACHERS")
+                        .requestMatchers(HttpMethod.GET, "/api/v1/teachers/{uuid}").hasAnyAuthority("VIEW_TEACHER", "VIEW_ONLY_TEACHER")
+                        .requestMatchers(HttpMethod.DELETE,"/api/v1/teachers/{uuid}").hasAuthority("DELETE_TEACHER")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
