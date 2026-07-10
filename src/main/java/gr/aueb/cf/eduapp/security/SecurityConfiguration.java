@@ -58,6 +58,7 @@ public class SecurityConfiguration {
                                 "/configuration/**"        // Swagger configuration endpoints
                         ).permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/v1/users/**").hasAuthority("VIEW_USER")
+                        .requestMatchers("/api/v1/eligible/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/teachers/{uuid}/amka-file").hasAuthority("EDIT_TEACHER")
                         .requestMatchers(HttpMethod.PUT, "/api/v1/teachers/{uuid}").hasAuthority("EDIT_TEACHER")
                         .requestMatchers(HttpMethod.GET, "/api/v1/teachers").hasAuthority("VIEW_TEACHERS")
