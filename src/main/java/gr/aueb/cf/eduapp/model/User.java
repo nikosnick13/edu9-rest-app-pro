@@ -6,10 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -48,7 +51,11 @@ public class User extends AbstractEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        Set<GrantedAuthority> grantedAuthorities =  new HashSet<>();
+        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
+        role.getCapabilities()
+                .forEach(capability -> grantedAuthorities.add(new SimpleGrantedAuthority(capability.getName())));
+        return grantedAuthorities;
     }
 
     @Override
